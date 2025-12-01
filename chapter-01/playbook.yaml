@@ -1,12 +1,12 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   roles:
     - tools
     - docker-ce
     - k3s
     - todo
-- hosts: aws_ec2
+- hosts: localhost
   tasks:
     - debug:
         msg: "Once your Kubernetes cluster is up, you can access the todo application at http://{{ inventory_hostname }}/todo/"

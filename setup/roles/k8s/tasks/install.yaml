@@ -26,15 +26,12 @@
     name: 
       - apt-transport-https
       - python3-pip
+      - python3-openshift
       - open-iscsi
       - nfs-common
       - etcd-client
       - protobuf-compiler
     update_cache: yes
-
-- name: python prerequisites
-  pip:
-    name: openshift
 
 - name: gpg key
   ansible.builtin.apt_key:

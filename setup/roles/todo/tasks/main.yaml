@@ -1,12 +1,10 @@
 ---
 - name: prerequisites
   apt:
-    name: python3-pip
+    name: 
+      - python3-pip
+      - python3-openshift
     update_cache: yes
-
-- name: python prerequisites
-  pip:
-    name: openshift
 
 - name: manifests directory
   ansible.builtin.file:

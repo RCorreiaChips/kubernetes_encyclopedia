@@ -1,5 +1,5 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   pre_tasks:
     - name: install tests

@@ -34,7 +34,6 @@
     template: database.yaml.j2
     kubeconfig: "{{ todo_kubeconfig }}"
   when: 
-    - k8s_initial_master in ansible_facts['all_ipv4_addresses']
     - todo_postgres_operator
   retries: 10
   delay: 30
@@ -53,7 +52,6 @@
     - database-deploy.yaml.j2
     - database-service.yaml.j2
   when: 
-    - k8s_initial_master in ansible_facts['all_ipv4_addresses']
     - not todo_postgres_operator
   retries: 10
   register: result
@@ -65,8 +63,6 @@
     namespace: "{{ todo_namespace }}"
     template: "{{ item }}"
     kubeconfig: "{{ todo_kubeconfig }}"
-  when: 
-    - k8s_initial_master in ansible_facts['all_ipv4_addresses']
   loop:
     - application.yaml.j2
     - service.yaml.j2
@@ -81,7 +77,6 @@
     template: scaler.yaml.j2
     kubeconfig: "{{ todo_kubeconfig }}"
   when: 
-    - k8s_initial_master in ansible_facts['all_ipv4_addresses']
     - todo_scaler
   retries: 10
   register: result
@@ -94,8 +89,8 @@
     template: ingress.yaml.j2
     kubeconfig: "{{ todo_kubeconfig }}"
   when: 
-    - k8s_initial_master in ansible_facts['all_ipv4_addresses']
     - todo_ingress
   retries: 10
   register: result
   until: result is successful
+

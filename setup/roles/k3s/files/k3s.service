@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=5
 User=root
-ExecStart=/usr/local/bin/k3s server
+ExecStart=/usr/local/bin/k3s server --write-kubeconfig-mode 644
 
 [Install]
 WantedBy=multi-user.target

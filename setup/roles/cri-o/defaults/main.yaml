@@ -1,5 +1,5 @@
 ---
-crio_version: "1.35"
+crio_version: "1.34"
 crio_os: xUbuntu_22.04
 kubernetes_version: "1.19"
 crio_repo: 

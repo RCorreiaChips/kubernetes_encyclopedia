@@ -12,6 +12,12 @@
       - cri-o
     update_cache: yes
 
+- name: Add ubuntu user to containerd group
+  user:
+    name: ubuntu
+    groups: containerd
+    append: yes
+
 - name: skopeo
   ansible.builtin.apt:
     name: skopeo

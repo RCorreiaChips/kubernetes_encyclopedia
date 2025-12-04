@@ -1,20 +1,10 @@
 ---
-- name: gpg key
-  ansible.builtin.apt_key:
-    url: "{{ crio_repo }}/{{ crio_os }}/Release.key"
-    state: present
-
-- name: kubic repository
-  ansible.builtin.apt_repository:
-    repo: "deb {{ crio_repo }}/{{ crio_os }}/ /"
-    state: present
-    filename: kubic
-
-- name: cri-o repository
-  ansible.builtin.apt_repository:
-    repo: "deb {{ crio_repo }}:/cri-o:/{{ crio_version }}/{{ crio_os }}/ /"
-    state: present
-    filename: kubic.cri-o
+- name: get cri-o repo gpg key
+  ansible.builtin.shell:
+    shell: > 
+      curl -fsSL https://download.opensuse.org/repositories/isv:/cri-o:/stable:/{{ crio_version }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/cri-o-apt-keyring.gpg
+      echo "deb [signed-by=/etc/apt/keyrings/cri-o-apt-keyring.gpg] https://download.opensuse.org/repositories/isv:/cri-o:/stable:/{{ crio_version }}/deb/ /" |
+    tee /etc/apt/sources.list.d/cri-o.list
 
 - name: install
   ansible.builtin.apt:

@@ -1,8 +1,9 @@
 ---
-crio_version: "1.20"
-crio_os: xUbuntu_20.04
-crio_repo: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable
+crio_version: "1.35"
+crio_os: xUbuntu_22.04
+kubernetes_version: "1.19"
+crio_repo: 
 crio_skopeo: false
 crio_cni: false
-cni_plugin_version: v0.9.1
-cni_plugin_url: https://github.com/containernetworking/plugins/releases/download/{{ cni_plugin_version }}/cni-plugins-linux-amd64-{{ cni_plugin_version }}.tgz
+cni_plugin_version: v1.8.0
+cni_plugin_url: https://github.com/containernetworking/plugins/releases/download/{{ cni_plugin_version }}/cni-plugins-linux-arm64-{{ cni_plugin_version }}.tgz

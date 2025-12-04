@@ -1,9 +1,10 @@
 ---
 - name: get cri-o repo gpg key
-  ansible.builtin.shell:
-    shell: > 
+  ansible.builtin.command: > 
       curl -fsSL https://download.opensuse.org/repositories/isv:/cri-o:/stable:/{{ crio_version }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/cri-o-apt-keyring.gpg
       echo "deb [signed-by=/etc/apt/keyrings/cri-o-apt-keyring.gpg] https://download.opensuse.org/repositories/isv:/cri-o:/stable:/{{ crio_version }}/deb/ /" | tee /etc/apt/sources.list.d/cri-o.list
+  args:
+    creates: /etc/apt/keyrings/cri-o-apt-keyring.gpg
 
 - name: install
   ansible.builtin.apt:

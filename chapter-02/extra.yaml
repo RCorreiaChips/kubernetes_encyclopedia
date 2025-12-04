@@ -1,5 +1,5 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   roles:
     - containerd

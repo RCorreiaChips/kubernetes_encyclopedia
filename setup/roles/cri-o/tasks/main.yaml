@@ -10,7 +10,6 @@
   ansible.builtin.apt:
     name:
       - cri-o
-      - cri-o-runc
     update_cache: yes
 
 - name: skopeo

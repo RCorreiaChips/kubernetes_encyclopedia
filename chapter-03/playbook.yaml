@@ -1,15 +1,15 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   roles:
     - tools
     - iperf
-- hosts: clients
+- hosts: localhost
   become: yes
   roles:
     - cri-o
     - crictl
-- hosts: remote
+- hosts: localhost
   become: yes
   tasks:
     - name: files

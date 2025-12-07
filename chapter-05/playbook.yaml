@@ -1,5 +1,5 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   roles:
     - tools
@@ -7,7 +7,7 @@
     - docker-registry
     - cri-o
     - crictl
-- hosts: remote
+- hosts: localhost
   become: yes
   tasks:
     - name: files

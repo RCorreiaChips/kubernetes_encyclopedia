@@ -1,11 +1,11 @@
 ---
-- hosts: remote
+- hosts: localhost
   become: yes
   roles:
     - tools
     - cri-o
     - crictl
-- hosts: remote
+- hosts: localhost
   become: yes
   tasks:
     - name: bridge utils

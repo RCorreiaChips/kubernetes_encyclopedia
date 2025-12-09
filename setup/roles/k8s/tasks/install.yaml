@@ -35,12 +35,12 @@
 
 - name: gpg key
   ansible.builtin.apt_key:
-    url: https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key
+    url: https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key
     state: present
 
 - name: repository
   ansible.builtin.apt_repository:
-    repo: deb https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+    repo: deb https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /
     state: present
     filename: kubernetes
 

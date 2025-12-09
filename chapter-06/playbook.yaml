@@ -1,5 +1,5 @@
 ---
-- hosts: masters:nodes
+- hosts: localhost
   become: yes
   vars:
     k8s_install: false

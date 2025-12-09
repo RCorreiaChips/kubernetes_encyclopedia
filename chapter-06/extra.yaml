@@ -1,5 +1,5 @@
 ---
-- hosts: masters:nodes
+- hosts: localhost
   become: yes
   roles:
     - k8s
